@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>採用サイト｜税理士法人小野会計</title>
+<meta name="description" content="群馬県館林市の税理士法人小野会計の採用サイト。フレックスタイム制・リモート勤務可。ひとりで抱えず、仕組みとチームでお客様を支える仲間を募集しています。">
+<link rel="icon" href="assets/logo-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* ロゴの2色（水色・薄ピンク）を基調に */
+    --sky:#b2cce2;          /* ロゴの水色 */
+    --sky-deep:#3f78a6;     /* ボタン・見出し用（白文字が読める濃さ） */
+    --sky-pale:#eef5fb;
+    --pink:#e4bac4;         /* ロゴのピンク */
+    --pink-deep:#c9748b;    /* アクセント */
+    --pink-pale:#fcf1f4;
+    --ink:#2f3d4a;
+    --sub:#66727e;
+    --line:#e3e9ef;
+    --white:#ffffff;
+    --grad:linear-gradient(120deg,var(--sky-pale) 0%,#f6f3f8 50%,var(--pink-pale) 100%);
+    --radius:14px;
+    --en:"Montserrat",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;color:var(--ink);background:var(--white);line-height:1.9;letter-spacing:.04em;font-size:15px}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{width:min(1120px,100% - 32px);margin-inline:auto}
+
+  /* ---------- header ---------- */
+  .header{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);border-bottom:1px solid transparent;transition:border-color .3s}
+  .header.scrolled{border-color:var(--line)}
+  .header__in{display:flex;align-items:center;justify-content:space-between;height:76px;padding-inline:24px}
+  .logo{display:flex;align-items:center;gap:16px}
+  .logo img{height:44px;width:auto}
+  .logo__tag{font-family:var(--en);font-size:10px;letter-spacing:.2em;color:var(--sky-deep);border-left:1px solid var(--line);padding-left:16px}
+  .nav{display:flex;align-items:center;gap:28px}
+  .nav a.nav__link{font-family:var(--en);font-size:12px;font-weight:600;letter-spacing:.15em;color:var(--ink)}
+  .nav a.nav__link:hover{color:var(--sky-deep)}
+  .nav a.nav__link--hp{font-family:"Noto Sans JP",sans-serif;letter-spacing:.06em;color:var(--pink-deep)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;font-size:13px;letter-spacing:.1em;padding:12px 26px;border-radius:999px;transition:.25s}
+  .btn--fill{background:var(--sky-deep);color:#fff}
+  .btn--fill:hover{background:#33658d}
+  .btn--line{border:1.5px solid var(--sky-deep);color:var(--sky-deep);background:#fff}
+  .btn--line:hover{background:var(--sky-deep);color:#fff}
+  .btn--accent{background:var(--pink-deep);color:#fff}
+  .btn--accent:hover{background:#b8607a}
+  .menu-btn{display:none;background:none;border:0;width:40px;height:40px;cursor:pointer}
+  .menu-btn span{display:block;width:24px;height:2px;background:var(--sky-deep);margin:5px auto;transition:.3s}
+
+  /* ---------- hero ---------- */
+  .hero{padding-top:76px}
+  .hero__lead{padding:56px 24px 28px;font-family:var(--en);font-weight:600;font-size:clamp(20px,3vw,30px);line-height:1.35;color:var(--sky-deep);letter-spacing:.02em}
+  .hero__lead span{color:var(--pink-deep)}
+  .hero__visual{position:relative;margin:0 24px;height:min(72vh,640px);border-radius:var(--radius);overflow:hidden;background:url("assets/hero.jpg") right 30%/auto 118% no-repeat,var(--grad)}
+  .hero__visual::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(238,245,251,.96) 0%,rgba(246,243,248,.85) 30%,rgba(246,243,248,.5) 42%,rgba(252,241,244,0) 58%)}
+  .hero__visual::after{content:"";position:absolute;left:24px;top:22px;width:64px;aspect-ratio:300/320;background:url("assets/logo-mark.png") center/contain no-repeat;opacity:.9}
+  .hero__copy{position:absolute;left:clamp(24px,6vw,80px);bottom:clamp(32px,8vh,80px);z-index:1}
+  .hero__copy h1{font-size:clamp(26px,4.4vw,48px);font-weight:700;line-height:1.55;letter-spacing:.08em;color:var(--ink)}
+  .hero__copy h1 em{font-style:normal;background:linear-gradient(transparent 62%,rgba(228,186,196,.7) 62%)}
+  .hero__copy p{margin-top:18px;font-size:clamp(13px,1.4vw,16px);color:var(--sub)}
+  .photo-note{position:absolute;right:16px;top:14px;z-index:1;font-size:11px;color:var(--sub);border:1px dashed var(--sky);background:rgba(255,255,255,.6);padding:2px 10px;border-radius:4px}
+  .scroll{position:absolute;right:clamp(24px,4vw,48px);bottom:32px;z-index:1;color:var(--sky-deep);font-family:var(--en);font-size:10px;letter-spacing:.3em;writing-mode:vertical-rl;display:flex;align-items:center;gap:12px}
+  .scroll::after{content:"";width:1px;height:56px;background:linear-gradient(var(--sky-deep) 50%,transparent 50%);background-size:1px 112px;animation:scroll 2s infinite}
+  @keyframes scroll{from{background-position:0 -56px}to{background-position:0 56px}}
+
+  /* ---------- section common ---------- */
+  .sec{padding:120px 0}
+  .sec--sky{background:var(--sky-pale)}
+  .sec--pink{background:var(--pink-pale)}
+  .sec--grad{background:var(--grad)}
+  .ttl{margin-bottom:56px}
+  .ttl__en{display:block;font-family:var(--en);font-weight:700;font-size:clamp(34px,5vw,56px);letter-spacing:.06em;line-height:1.1;color:var(--sky-deep)}
+  .ttl__ja{display:flex;align-items:center;gap:12px;margin-top:14px;font-size:14px;font-weight:500}
+  .ttl__ja::before{content:"";width:24px;height:2px;border-radius:2px;background:var(--pink)}
+  .ttl--center{text-align:center}
+  .ttl--center .ttl__ja{justify-content:center}
+
+  /* placeholder photo */
+  .ph{position:relative;background:linear-gradient(150deg,#d6e5f1,#f1dbe1);border-radius:var(--radius);overflow:hidden}
+  .ph::before{content:"";position:absolute;inset:0;background:url("assets/logo-mark.png") center/32% no-repeat;opacity:.35}
+  .ph::after{content:attr(data-label);position:absolute;inset:auto 12px 10px auto;font-size:11px;color:var(--sub);border:1px dashed var(--sky);background:rgba(255,255,255,.7);padding:1px 8px;border-radius:4px}
+
+  .photo{border-radius:var(--radius);overflow:hidden;background:var(--sky-pale)}
+  .photo img{width:100%;height:100%;object-fit:cover}
+
+  /* ---------- news ---------- */
+  .news{padding:72px 0 40px}
+  .news__in{display:grid;grid-template-columns:200px 1fr;gap:40px;align-items:start}
+  .news__list li{list-style:none;display:flex;gap:20px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line);font-size:14px}
+  .news__date{font-family:var(--en);font-size:13px;color:var(--sub);flex-shrink:0}
+  .tag{font-size:11px;background:var(--pink-pale);color:var(--pink-deep);padding:2px 12px;border-radius:999px;flex-shrink:0}
+
+  /* ---------- message ---------- */
+  .message__grid{display:grid;grid-template-columns:1.05fr 1fr;gap:72px;align-items:center}
+  .message__grid .photo{aspect-ratio:4/5}
+  .message__grid .photo img{object-position:50% 25%}
+  .message h3{font-size:clamp(22px,2.8vw,32px);line-height:1.7;letter-spacing:.08em;margin-bottom:32px}
+  .message p+p{margin-top:1.4em}
+  .sign{margin-top:36px;text-align:right;font-size:14px}
+  .sign strong{font-size:18px;margin-left:12px;letter-spacing:.15em}
+
+  /* ---------- about ---------- */
+  .about__top{display:grid;grid-template-columns:1fr 340px;gap:56px;align-items:center;margin-bottom:56px}
+  .about__top .photo{aspect-ratio:4/5}
+  .about__cap{font-size:12px;color:var(--sub);margin-top:8px;text-align:right}
+  .services{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .service{background:#fff;padding:36px 32px;border-radius:var(--radius)}
+  .service__no{font-family:var(--en);font-size:12px;color:var(--pink-deep);font-weight:700;letter-spacing:.2em}
+  .service h4{font-size:17px;margin:10px 0 10px}
+  .service p{font-size:13.5px;color:var(--sub);line-height:1.85}
+
+  /* ---------- what we do ---------- */
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+  .card-big{display:block;background:var(--sky-pale);border-radius:var(--radius);overflow:hidden;transition:.3s}
+  .card-big:nth-child(2){background:var(--pink-pale)}
+  .card-big:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(63,120,166,.14)}
+  .card-big .photo{aspect-ratio:16/9;border-radius:0}
+  .card-big__body{padding:28px 32px 32px}
+  .card-big__en{font-family:var(--en);font-weight:700;font-size:26px;color:var(--sky-deep);letter-spacing:.06em}
+  .card-big:nth-child(2) .card-big__en{color:var(--pink-deep)}
+  .card-big__ja{font-size:13px;color:var(--sub)}
+  .card-big__body p{margin-top:14px;font-size:14px}
+
+  .flow{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:step;margin-top:64px}
+  .flow li{list-style:none;position:relative;background:#fff;border:1px solid var(--line);border-top:4px solid var(--sky);border-radius:var(--radius);padding:32px 28px}
+  .flow li:nth-child(2){border-top-color:#cbc3dc}
+  .flow li:nth-child(3){border-top-color:var(--pink)}
+  .flow li::before{counter-increment:step;content:"STEP " counter(step,decimal-leading-zero);font-family:var(--en);font-size:12px;font-weight:700;letter-spacing:.2em;color:var(--pink-deep)}
+  .flow h4{font-size:17px;margin:8px 0 10px}
+  .flow p{font-size:13.5px;color:var(--sub)}
+
+  /* ---------- culture ---------- */
+  .points{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .point{background:#fff;border-radius:var(--radius);padding:36px 36px 32px;position:relative;box-shadow:0 6px 20px rgba(63,120,166,.06)}
+  .point__no{font-family:var(--en);font-size:44px;font-weight:700;line-height:1;color:var(--sky);position:absolute;right:28px;top:24px}
+  .point:nth-child(even) .point__no{color:var(--pink)}
+  .point h4{font-size:19px;margin-bottom:12px;padding-right:56px}
+  .point p{font-size:14px;color:var(--sub)}
+
+  /* ---------- numbers ---------- */
+  .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .num{background:#fff;border-radius:var(--radius);padding:36px 28px;text-align:center}
+  .num__label{font-size:13px;color:var(--sub)}
+  .num__val{font-family:var(--en);font-weight:700;font-size:clamp(44px,5.4vw,64px);line-height:1.2;margin:10px 0 4px;color:var(--sky-deep)}
+  .num:nth-child(even) .num__val{color:var(--pink-deep)}
+  .num__val small{font-family:"Noto Sans JP",sans-serif;font-size:16px;font-weight:700;margin-left:4px}
+  .num__note{font-size:12px;color:var(--sub)}
+
+  /* ---------- onboarding ---------- */
+  .timeline{position:relative;max-width:860px;margin:0 auto}
+  .timeline::before{content:"";position:absolute;left:96px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--sky),var(--pink))}
+  .tl{display:grid;grid-template-columns:96px 1fr;gap:36px;padding:0 0 44px;position:relative}
+  .tl::before{content:"";position:absolute;left:90px;top:8px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--sky-deep)}
+  .tl__when{font-family:var(--en);font-weight:700;color:var(--sky-deep);font-size:14px;letter-spacing:.08em;padding-right:20px;text-align:right}
+  .tl h4{font-size:17px;margin-bottom:6px}
+  .tl p{font-size:14px;color:var(--sub)}
+
+  /* ---------- interview ---------- */
+  .interviews{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .iv{background:#fff;border-radius:var(--radius);padding:32px 30px 30px;position:relative;border-top:4px solid var(--sky)}
+  .iv:nth-child(2){border-top-color:#cbc3dc}
+  .iv:nth-child(3){border-top-color:var(--pink)}
+  .iv__q{display:block;font-family:Georgia,serif;font-size:64px;line-height:.8;color:var(--pink)}
+  .iv__meta{margin-top:12px;font-size:12px;color:var(--sub)}
+  .iv h4{font-size:16px;margin-top:6px;line-height:1.7}
+  .iv__soon{display:inline-block;margin-top:10px;font-size:11px;color:var(--pink-deep);border:1px solid var(--pink-deep);padding:0 10px;border-radius:999px}
+
+  /* ---------- recruitment ---------- */
+  .tabs{display:flex;gap:8px;margin-bottom:48px;overflow-x:auto;padding:6px;background:var(--sky-pale);border-radius:999px;width:fit-content;max-width:100%}
+  .tab{appearance:none;background:none;border:0;border-radius:999px;padding:12px 26px;font:inherit;font-weight:700;font-size:14px;color:var(--sub);cursor:pointer;white-space:nowrap}
+  .tab[aria-selected="true"]{color:#fff;background:var(--sky-deep)}
+  .panel[hidden]{display:none}
+  .job-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:28px}
+  .job-head h3{font-size:22px;letter-spacing:.06em}
+  .chip{font-size:12px;background:var(--sky-deep);color:#fff;padding:3px 14px;border-radius:999px}
+  .chip--line{background:var(--pink-pale);color:var(--pink-deep)}
+  .spec{width:100%;border-collapse:separate;border-spacing:0;font-size:14.5px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  .spec th,.spec td{border-top:1px solid var(--line);padding:22px 20px;vertical-align:top;text-align:left}
+  .spec tr:first-child th,.spec tr:first-child td{border-top:0}
+  .spec th{width:200px;background:var(--sky-pale);font-weight:700;color:var(--sky-deep)}
+  .spec ul{padding-left:1.2em}
+  .spec li+li{margin-top:2px}
+  .note{font-size:12.5px;color:var(--sub)}
+
+  .steps{display:flex;gap:12px;flex-wrap:wrap;margin-top:72px}
+  .steps li{list-style:none;flex:1 1 150px;background:var(--grad);border-radius:var(--radius);padding:22px 16px;text-align:center;font-weight:700;font-size:14px}
+  .steps li span{display:block;font-family:var(--en);font-size:11px;color:var(--pink-deep);letter-spacing:.2em;margin-bottom:4px}
+
+  /* ---------- faq ---------- */
+  .faq{max-width:860px;margin:0 auto}
+  .faq details{background:#fff;border-radius:var(--radius);margin-bottom:12px}
+  .faq summary{list-style:none;cursor:pointer;padding:24px 56px 24px 56px;position:relative;font-weight:700}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::before{content:"Q";position:absolute;left:22px;top:20px;font-family:var(--en);font-size:20px;color:var(--sky-deep)}
+  .faq summary::after{content:"";position:absolute;right:24px;top:50%;width:10px;height:10px;border-right:2px solid var(--sky-deep);border-bottom:2px solid var(--sky-deep);transform:translateY(-70%) rotate(45deg);transition:.25s}
+  .faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+  .faq .a{padding:0 24px 26px 56px;position:relative;color:var(--sub);font-size:14.5px}
+  .faq .a::before{content:"A";position:absolute;left:22px;top:-4px;font-family:var(--en);font-size:20px;color:var(--pink-deep);font-weight:700}
+
+  /* ---------- entry ---------- */
+  .entry{position:relative;overflow:hidden;text-align:center;padding:120px 0;background:var(--grad)}
+  .entry::before{content:"";position:absolute;left:50%;top:50%;width:520px;aspect-ratio:300/320;transform:translate(-50%,-50%);background:url("assets/logo-mark.png") center/contain no-repeat;opacity:.18}
+  .entry .wrap{position:relative}
+  .entry h2{font-family:var(--en);font-size:clamp(44px,8vw,96px);letter-spacing:.1em;line-height:1;color:var(--sky-deep)}
+  .entry p{margin:24px auto 44px;max-width:560px}
+  .entry__btns{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+  .entry .btn{min-width:260px;padding:20px 32px;font-size:15px}
+  .entry .entry__contact{margin:36px auto 0;font-size:13px;color:var(--sub)}
+  .entry__contact a{text-decoration:underline;text-underline-offset:3px}
+
+  /* ---------- footer ---------- */
+  .footer{background:#fff;color:var(--sub);padding:64px 0 32px;font-size:13px;border-top:4px solid transparent;border-image:linear-gradient(90deg,var(--sky),var(--pink)) 1}
+  .footer__grid{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end}
+  .footer__logo{height:52px;width:auto;margin-bottom:18px}
+  .footer__nav{display:flex;flex-wrap:wrap;gap:12px 28px;font-family:var(--en);font-size:11px;letter-spacing:.15em;color:var(--ink)}
+  .footer__nav a:hover{color:var(--sky-deep)}
+  .footer a[href^="mailto"]{text-decoration:underline;text-underline-offset:3px}
+  .copy{margin-top:48px;font-family:var(--en);font-size:11px;opacity:.7;letter-spacing:.1em}
+
+  .fixed-entry{display:none}
+
+  /* reveal */
+  .js .rv{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}
+  .js .rv.on{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:960px){
+    .nav{position:fixed;inset:76px 0 auto 0;background:#fff;flex-direction:column;align-items:stretch;gap:0;padding:12px 24px 28px;border-bottom:1px solid var(--line);transform:translateY(-120%);transition:transform .35s;z-index:-1}
+    .nav.open{transform:none}
+    .nav a.nav__link{padding:16px 0;border-bottom:1px solid var(--line);font-size:13px}
+    .nav .btn{margin-top:16px}
+    .menu-btn{display:block}
+    .menu-btn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .menu-btn.open span:nth-child(2){opacity:0}
+    .menu-btn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .message__grid,.duo,.points,.about__top{grid-template-columns:1fr}
+    .about__top .photo{aspect-ratio:4/3}
+    .message__grid{gap:40px}
+    .services{grid-template-columns:1fr 1fr}
+    .flow,.interviews{grid-template-columns:1fr}
+    .nums{grid-template-columns:1fr 1fr}
+    .news__in{grid-template-columns:1fr;gap:16px}
+    .hero__visual{background-size:cover;background-position:62% 30%}
+    .hero__visual::before{background:linear-gradient(0deg,rgba(238,245,251,.96) 0%,rgba(246,243,248,.85) 38%,rgba(252,241,244,0) 70%)}
+  }
+  @media (max-width:640px){
+    body{font-size:14px}
+    .header__in{padding-inline:16px;height:64px}
+    .logo img{height:34px}
+    .logo__tag{display:none}
+    .nav{inset:64px 0 auto 0}
+    .hero{padding-top:64px}
+    .hero__lead{padding:36px 16px 20px}
+    .hero__visual{margin:0 16px;height:68vh}
+    .sec{padding:80px 0}
+    .ttl{margin-bottom:36px}
+    .services,.nums{grid-template-columns:1fr}
+    .service,.point{padding:28px 24px}
+    .news__list li{flex-wrap:wrap;gap:6px 12px}
+    .spec th,.spec td{display:block;width:100%;padding:14px 16px}
+    .spec td{border-top:0}
+    .timeline::before{left:6px}
+    .tl{grid-template-columns:1fr;gap:4px;padding-left:32px}
+    .tl::before{left:0}
+    .tl__when{text-align:left;padding:0}
+    .entry .btn{min-width:0;width:100%}
+    .entry::before{width:320px}
+    .footer__grid{grid-template-columns:1fr}
+    .fixed-entry{display:flex;position:fixed;inset:auto 0 0 0;z-index:40}
+    .fixed-entry a{flex:1;text-align:center;padding:14px 0;font-weight:700;font-size:14px;color:#fff;background:var(--sky-deep)}
+    .fixed-entry a+a{background:var(--pink-deep)}
+    .footer{padding-bottom:80px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="header" id="header">
+  <div class="header__in">
+    <a href="#top" class="logo">
+      <img src="assets/logo.png" alt="税理士法人小野会計" width="720" height="175">
+      <span class="logo__tag">RECRUITING SITE</span>
+    </a>
+    <nav class="nav" id="nav">
+      <a class="nav__link" href="#message">MESSAGE</a>
+      <a class="nav__link" href="#about">ABOUT</a>
+      <a class="nav__link" href="#culture">CULTURE</a>
+      <a class="nav__link" href="#interview">INTERVIEW</a>
+      <a class="nav__link" href="#recruit">RECRUIT</a>
+      <a class="nav__link nav__link--hp" href="https://takako-zeikin.studio.site/" target="_blank" rel="noopener">事務所HP</a>
+      <a class="btn btn--line" href="#entry">見学・カジュアル面談</a>
+      <a class="btn btn--fill" href="#entry">ENTRY</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="メニューを開く" aria-controls="nav" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <p class="hero__lead rv">Never alone.<br><span>Together, by design.</span></p>
+  <div class="hero__visual">
+    <div class="hero__copy rv">
+      <h1>ひとりで抱えない。<br><em>仕組みと仲間</em>で、<br>地域の会社を支える。</h1>
+      <p>群馬県館林市の税理士法人小野会計 採用サイト</p>
+    </div>
+    <div class="scroll">SCROLL</div>
+  </div>
+</section>
+
+<!-- ================= NEWS ================= -->
+<section class="news">
+  <div class="wrap news__in">
+    <div class="ttl" style="margin:0"><span class="ttl__en" style="font-size:28px">NEWS</span><span class="ttl__ja">お知らせ</span></div>
+    <ul class="news__list">
+      <li><span class="news__date">2026.11.01</span><span class="tag">採用情報</span><span>採用サイトを公開しました</span></li>
+      <li><span class="news__date">2026.11.01</span><span class="tag">募集</span><span>正社員（税務スタッフ）・パート（会計事務スタッフ）を募集しています</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= MESSAGE ================= -->
+<section class="sec" id="message">
+  <div class="wrap message__grid">
+    <div class="photo rv"><img src="assets/message.jpg?v=2" alt="代表社員 小野貴子" loading="lazy" width="1000" height="1500"></div>
+    <div class="rv">
+      <div class="ttl"><span class="ttl__en">MESSAGE</span><span class="ttl__ja">代表メッセージ</span></div>
+      <h3>「わからない」を、<br>ひとりにしない事務所へ。</h3>
+      <p>会計事務所の仕事は、数字を正確に積み上げる地道な仕事です。だからこそ、困ったときに相談できる仲間と、迷わず進める仕組みが欠かせないと考えています。</p>
+      <p>私たちはマニュアルを整え、ミスが起きても個人を責めるのではなく、仕組みをどう良くするかを全員で考えます。フレックスタイム制やリモート勤務も取り入れ、家庭や自分の時間も大切にしながら、長く腰を据えて働ける環境をつくってきました。</p>
+      <p>地元・館林のお客様に深く関わり、経営の一番近くで支える。そんな仕事に、一緒に取り組んでくれる方をお待ちしています。</p>
+      <p class="sign">税理士法人小野会計 代表社員<strong>小野 貴子</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="sec sec--sky" id="about">
+  <div class="wrap">
+    <div class="ttl rv"><span class="ttl__en">ABOUT</span><span class="ttl__ja">小野会計について</span></div>
+    <div class="about__top">
+      <p class="rv">法人・個人のお客様に、日々の記帳から決算・申告まで幅広く対応しています。税務会計にとどまらず、経営改善や資金調達、社会福祉法人の支援、システム導入まで。地域の事業者の「困った」に、チームで応える事務所です。</p>
+      <figure class="rv"><div class="photo"><img src="assets/office.jpg" alt="税理士法人小野会計 館林の事務所外観" loading="lazy" width="1000" height="1333"></div><figcaption class="about__cap">館林の事務所（大手町3-30）</figcaption></figure>
+    </div>
+    <div class="services rv">
+      <div class="service"><span class="service__no">01</span><h4>税務・会計支援</h4><p>月次の会計処理から決算書・法人税／所得税／消費税の申告、年末調整・法定調書まで。</p></div>
+      <div class="service"><span class="service__no">02</span><h4>経営改善・コンサルティング</h4><p>試算表や財務データをもとに、経営状況の把握と改善の打ち手を一緒に考えます。</p></div>
+      <div class="service"><span class="service__no">03</span><h4>財務・融資支援</h4><p>金融機関とのやりとりや資金繰りの見える化など、お金まわりの課題を支援します。</p></div>
+      <div class="service"><span class="service__no">04</span><h4>社会福祉法人向け支援</h4><p>社会福祉法人の会計・決算・計算書類の作成など、専門性の高い業務にも対応しています。</p></div>
+      <div class="service"><span class="service__no">05</span><h4>相続・事業承継</h4><p>増加している相続税申告や事業承継の相談に対応。専門性を高めたい方にも最適です。</p></div>
+      <div class="service"><span class="service__no">06</span><h4>システム導入・補助金活用</h4><p>給与・販売管理システムの導入支援や、補助金・助成金の活用もサポートしています。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHAT WE DO ================= -->
+<section class="sec" id="work">
+  <div class="wrap">
+    <div class="ttl rv"><span class="ttl__en">WHAT WE DO</span><span class="ttl__ja">仕事内容</span></div>
+    <div class="duo">
+      <a href="#job-full" class="card-big rv">
+        <div class="photo"><img src="assets/work-tax.jpg" alt="お客様との打ち合わせの様子" loading="lazy" width="1100" height="733"></div>
+        <div class="card-big__body">
+          <span class="card-big__en">TAX STAFF</span>
+          <span class="card-big__ja">　税務スタッフ（正社員）</span>
+          <p>顧問先の月次会計・決算・税務申告から、経営の相談対応、相続税申告まで。お客様の担当として、経営の一番近くで伴走します。</p>
+        </div>
+      </a>
+      <a href="#job-part" class="card-big rv">
+        <div class="photo"><img src="assets/work-office.jpg?v=4" alt="明るい事務所のデスクスペース" loading="lazy"></div>
+        <div class="card-big__body">
+          <span class="card-big__en">OFFICE STAFF</span>
+          <span class="card-big__ja">　会計事務スタッフ（パート）</span>
+          <p>資料の整理・会計ソフトへの入力・申告書作成のサポートなど。未経験の方にも先輩が丁寧にレクチャーします。</p>
+        </div>
+      </a>
+    </div>
+
+    <ol class="flow">
+      <li class="rv"><h4>資料の整理・確認</h4><p>顧問先から届いた通帳・領収書・請求書などの資料を精査し、抜け漏れを確認します。</p></li>
+      <li class="rv"><h4>仕訳・入力</h4><p>会計ソフトへ入力し、内容を検品。お客様ごとの業種や勘定科目の特徴をつかんでいきます。</p></li>
+      <li class="rv"><h4>決算・申告書の作成</h4><p>業種やルールに合わせた「目利き」をしながら、決算書・申告書を完成させます。</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= CULTURE ================= -->
+<section class="sec sec--grad" id="culture">
+  <div class="wrap">
+    <div class="ttl rv"><span class="ttl__en">OUR CULTURE</span><span class="ttl__ja">働きやすさの理由</span></div>
+    <div class="points">
+      <div class="point rv"><span class="point__no">01</span><h4>マニュアル完備 ＆ 改善文化</h4><p>万が一ミスが起きても、個人を責めずに「仕組みをどう直すか」を全員で考えます。手順が整っているから、迷わず進められます。</p></div>
+      <div class="point rv"><span class="point__no">02</span><h4>フレックス ＆ リモート勤務</h4><p>コアタイムは10時〜15時。業務状況に応じて週2日ほどのリモート勤務も可能です。通勤や家庭の事情に合わせて働けます。</p></div>
+      <div class="point rv"><span class="point__no">03</span><h4>家庭・イベントを優先できる</h4><p>参観日や学校行事など、ご家族の大切な予定に合わせた休みの調整が可能です。ブランクからの復帰も応援しています。</p></div>
+      <div class="point rv"><span class="point__no">04</span><h4>競うより、協力するチーム</h4><p>個人で競い合うのではなく、メンバー同士で協力しながら業務を進める風土。10年以上勤務しているスタッフも在籍しています。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NUMBERS ================= -->
+<section class="sec sec--pink" id="numbers">
+  <div class="wrap">
+    <div class="ttl ttl--center rv"><span class="ttl__en">IN NUMBERS</span><span class="ttl__ja">数字で見る小野会計</span></div>
+    <div class="nums">
+      <div class="num rv"><div class="num__label">コアタイム</div><div class="num__val">10-15<small>時</small></div><div class="num__note">フレックスタイム制</div></div>
+      <div class="num rv"><div class="num__label">リモート勤務</div><div class="num__val">2<small>日／週</small></div><div class="num__note">業務状況に応じて</div></div>
+      <div class="num rv"><div class="num__label">月の残業時間（通常期）</div><div class="num__val">10<small>h未満</small></div><div class="num__note">繁忙期でも20時間未満</div></div>
+      <div class="num rv"><div class="num__label">賞与</div><div class="num__val">2<small>回／年</small></div><div class="num__note">7月・12月</div></div>
+      <div class="num rv"><div class="num__label">入社後の研修期間</div><div class="num__val">3<small>ヶ月</small></div><div class="num__note">先輩がマンツーマンでレクチャー</div></div>
+      <div class="num rv"><div class="num__label">転勤</div><div class="num__val">0</div><div class="num__note">地元・館林で腰を据えて</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ONBOARDING ================= -->
+<section class="sec" id="onboarding">
+  <div class="wrap">
+    <div class="ttl ttl--center rv"><span class="ttl__en">ONBOARDING</span><span class="ttl__ja">入社後の流れ</span></div>
+    <div class="timeline">
+      <div class="tl rv"><div class="tl__when">DAY 1〜</div><div><h4>事務所のルールとお客様を知る</h4><p>マニュアルをもとに、事務所の業務フローや使用する会計ソフトを確認します。わからないことはいつでも聞ける環境です。</p></div></div>
+      <div class="tl rv"><div class="tl__when">〜1ヶ月</div><div><h4>業種ごとの特徴をつかむ</h4><p>お客様ごとに異なる業種・勘定科目の特性や業務フローを確認。会計入力のやり方を先輩がレクチャーします。</p></div></div>
+      <div class="tl rv"><div class="tl__when">〜3ヶ月</div><div><h4>担当案件の準備を進める</h4><p>これまでの経験を活かしながら、さらなる「目利き（判断力）」のレベルアップを目指します。研修期間中も労働条件は同じです。</p></div></div>
+      <div class="tl rv"><div class="tl__when">3ヶ月〜</div><div><h4>担当としてお客様を支える</h4><p>チームのサポートを受けながら担当先を持ち、決算・申告、経営相談へと仕事の幅を広げていきます。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INTERVIEW ================= -->
+<section class="sec sec--sky" id="interview">
+  <div class="wrap">
+    <div class="ttl rv"><span class="ttl__en">INTERVIEW</span><span class="ttl__ja">スタッフインタビュー</span></div>
+    <div class="interviews">
+      <article class="iv rv"><span class="iv__q">“</span><p class="iv__meta">税務スタッフ／勤続10年以上</p><h4>（見出し例）お客様に「ありがとう」と言われる距離で働けること</h4><span class="iv__soon">COMING SOON</span></article>
+      <article class="iv rv"><span class="iv__q">“</span><p class="iv__meta">会計事務スタッフ／子育て中</p><h4>（見出し例）フレックスとリモートで、家庭と仕事を両立</h4><span class="iv__soon">COMING SOON</span></article>
+      <article class="iv rv"><span class="iv__q">“</span><p class="iv__meta">中途入社スタッフ</p><h4>（見出し例）マニュアルと先輩がいるから、ブランクがあっても安心</h4><span class="iv__soon">COMING SOON</span></article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RECRUITMENT INFO ================= -->
+<section class="sec" id="recruit">
+  <div class="wrap">
+    <div class="ttl rv"><span class="ttl__en">RECRUITMENT</span><span class="ttl__ja">募集要項</span></div>
+
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" id="tab-full" aria-controls="job-full" aria-selected="true">正社員｜税務スタッフ</button>
+      <button class="tab" role="tab" id="tab-part" aria-controls="job-part" aria-selected="false">パート｜会計事務スタッフ</button>
+    </div>
+
+    <!-- 正社員 -->
+    <div class="panel" id="job-full" role="tabpanel" aria-labelledby="tab-full">
+      <div class="job-head"><h3>税務スタッフ（法人税・顧問業務／相続・事業承継）</h3><span class="chip">正社員</span><span class="chip chip--line">経験者</span></div>
+      <table class="spec">
+        <tr><th>仕事内容</th><td><ul>
+          <li>仕訳入力、会計データの入力・確認</li>
+          <li>試算表・月次決算書の作成</li>
+          <li>決算書・税務申告書の作成（法人税・所得税・消費税など）</li>
+          <li>年末調整、法定調書の作成、確定申告業務</li>
+          <li>顧問先への税務・会計に関する相談対応、打ち合わせ・経営状況の確認</li>
+          <li>相続税申告などの相続関連業務</li>
+          <li>その他、税務会計に付随する業務</li></ul></td></tr>
+        <tr><th>応募資格</th><td><strong>【必須】</strong><ul>
+          <li>日商簿記2級以上</li>
+          <li>会計事務所での就業経験</li>
+          <li>IT・AIツールに対応できるITリテラシー</li></ul>
+          <p class="note" style="margin-top:8px">【歓迎】向上心のある方／論理的思考とコミュニケーションに自信のある方／AI技術に関心がある方</p></td></tr>
+        <tr><th>求める人物像</th><td>細部に注意を払える方、責任感を持って業務に取り組める方、柔軟な思考で変化に対応できる方</td></tr>
+        <tr><th>雇用形態</th><td>正社員（試用期間3ヶ月・条件変更なし）</td></tr>
+        <tr><th>給与</th><td>月給26万円〜30万円（年収350万円〜500万円）<br>
+          <span class="note">※固定残業代を含む：時間外労働の有無にかかわらず20時間分の時間外手当として30,000円〜を支給。超過分は全額支給。固定残業代を除く基本給230,000円〜</span></td></tr>
+        <tr><th>昇給・賞与</th><td>昇給 年1回／賞与 年2回（7月・12月）</td></tr>
+        <tr><th>勤務時間</th><td>9:00〜18:00（休憩60分）<br>フレックスタイム制（コアタイム 10:00〜15:00）<br>
+          <span class="note">残業：通常期 月10時間未満／繁忙期 月20時間未満</span></td></tr>
+        <tr><th>休日・休暇</th><td>土日祝休み、年次有給休暇、夏季休暇、冬季休暇<br><span class="note">学校行事・ご家族の予定に合わせた休みの調整可</span></td></tr>
+        <tr><th>勤務地</th><td>群馬県館林市大手町3-30（転勤なし）<br>東武伊勢崎線 館林駅より徒歩13分／車通勤可（駐車場完備）<br>
+          <span class="note">業務状況に応じて週2日程度のリモート勤務可。敷地内禁煙。</span></td></tr>
+        <tr><th>待遇・福利厚生</th><td>社会保険完備（健康保険・厚生年金・雇用保険・労災保険）／交通費支給（距離に応じて・ガソリン代支給あり）／資格取得サポート／研修・勉強会</td></tr>
+        <tr><th>選考プロセス</th><td>書類選考 → 適性検査 → 面接（1回） → 内定</td></tr>
+      </table>
+    </div>
+
+    <!-- パート -->
+    <div class="panel" id="job-part" role="tabpanel" aria-labelledby="tab-part" hidden>
+      <div class="job-head"><h3>会計事務スタッフ</h3><span class="chip">パート</span><span class="chip chip--line">未経験歓迎</span><span class="chip chip--line">ブランクOK</span></div>
+      <table class="spec">
+        <tr><th>仕事内容</th><td>会計事務所での事務業務全般をお任せします。<ul>
+          <li>経理・財務関連のデータ入力や書類作成</li>
+          <li>税務申告に関するサポート業務</li>
+          <li>お客様との連絡や調整業務</li>
+          <li>その他一般的な事務作業・庶務</li></ul></td></tr>
+        <tr><th>応募資格</th><td><strong>【必須】</strong>普通自動車免許<br><strong>【優遇】</strong><ul>
+          <li>会計事務所での実務経験（年数不問）</li>
+          <li>日商簿記3級</li>
+          <li>基本的なPC操作（Word・Excel）</li>
+          <li>チームでの協力やコミュニケーションが得意な方</li></ul></td></tr>
+        <tr><th>こんな方に</th><td>コツコツ正確に数字を積み上げるのが好きな方／チームで協力して良い組織をつくりたい方／私生活も大切にしたい方／「放置されるのが一番不安」という経験をお持ちの方 ── 私たちはひとりにしません。</td></tr>
+        <tr><th>給与</th><td>時給1,100円〜1,200円<br><span class="note">昇給 年1回（業績による）</span></td></tr>
+        <tr><th>勤務時間</th><td>月〜金 8:30〜16:00（実働6時間30分・休憩 12:00〜13:00）<br><span class="note">シフトは事前調整のうえ柔軟に対応。繁忙期は残業が発生する場合があります。</span></td></tr>
+        <tr><th>休日・休暇</th><td>週休2日制（カレンダーによる）、祝日、年次有給休暇、夏季休暇、冬季休暇<br><span class="note">参観日・学校行事などに合わせた休みの調整可</span></td></tr>
+        <tr><th>勤務地</th><td>群馬県館林市大手町3-30（転勤なし・出張なし）<br>東武伊勢崎線 館林駅より徒歩13分／車通勤可（駐車場完備）<br>
+          <span class="note">リモートワークは適宜可。屋内禁煙。</span></td></tr>
+        <tr><th>待遇・福利厚生</th><td>交通費支給（距離に応じて・ガソリン代支給あり）／有給休暇（法定どおり）／研修3ヶ月（同条件）</td></tr>
+        <tr><th>選考プロセス</th><td>応募 → 面接 → 内定<span class="note">（事務所見学も歓迎します）</span></td></tr>
+      </table>
+    </div>
+
+    <ol class="steps rv">
+      <li><span>STEP 01</span>エントリー</li>
+      <li><span>STEP 02</span>書類選考</li>
+      <li><span>STEP 03</span>適性検査</li>
+      <li><span>STEP 04</span>面接（1回）</li>
+      <li><span>STEP 05</span>内定</li>
+    </ol>
+    <p class="note" style="margin-top:12px">※正社員の選考フローです。応募前の事務所見学・カジュアル面談も受け付けています。</p>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="sec sec--pink" id="faq">
+  <div class="wrap">
+    <div class="ttl ttl--center rv"><span class="ttl__en">FAQ</span><span class="ttl__ja">よくあるご質問</span></div>
+    <div class="faq rv">
+      <details><summary>会計事務所の経験がなくても応募できますか？</summary><p class="a">パート（会計事務スタッフ）は未経験の方も歓迎しています。正社員（税務スタッフ）は日商簿記2級以上と会計事務所での就業経験をお持ちの方を募集しています。</p></details>
+      <details><summary>ブランクがあっても大丈夫ですか？</summary><p class="a">大歓迎です。マニュアルが整っており、入社後3ヶ月は先輩がレクチャーしながら進めますので、これまでの実務経験を落ち着いた環境で再発揮していただけます。</p></details>
+      <details><summary>子育てと両立できますか？</summary><p class="a">フレックスタイム制（コアタイム10〜15時）やリモート勤務を取り入れており、参観日や学校行事などに合わせた休みの調整も可能です。</p></details>
+      <details><summary>車で通勤できますか？</summary><p class="a">はい。駐車場を完備しており、距離に応じた交通費（ガソリン代）を支給しています。</p></details>
+      <details><summary>応募前に職場の雰囲気を知りたいです。</summary><p class="a">事務所見学・カジュアル面談を受け付けています。下記のボタンからお気軽にお申し込みください。</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ENTRY ================= -->
+<section class="entry" id="entry">
+  <div class="wrap">
+    <h2 class="rv">ENTRY</h2>
+    <p class="rv">少しでも興味を持っていただけたら、まずはお気軽にご連絡ください。<br>事務所見学・カジュアル面談も歓迎しています。</p>
+    <div class="entry__btns rv">
+      <a class="btn btn--accent" href="https://docs.google.com/forms/d/e/1FAIpQLSeUttvNhKNgyLRMvmkIpnhQUkwaLtw6oB4SBGYIMi8Nn_W-tg/viewform?usp=pp_url&amp;entry.2010085443=%E5%BF%9C%E5%8B%9F%E3%81%99%E3%82%8B" target="_blank" rel="noopener">応募フォームへ</a>
+      <a class="btn btn--line" href="https://docs.google.com/forms/d/e/1FAIpQLSeUttvNhKNgyLRMvmkIpnhQUkwaLtw6oB4SBGYIMi8Nn_W-tg/viewform?usp=pp_url&amp;entry.2010085443=%E4%BA%8B%E5%8B%99%E6%89%80%E8%A6%8B%E5%AD%A6%E3%83%BB%E3%82%AB%E3%82%B8%E3%83%A5%E3%82%A2%E3%83%AB%E9%9D%A2%E8%AB%87%E3%82%92%E5%B8%8C%E6%9C%9B%E3%81%99%E3%82%8B" target="_blank" rel="noopener">見学・カジュアル面談を申し込む</a>
+    </div>
+    <p class="entry__contact rv">採用に関するお問い合わせ：<a href="mailto:ono-hi@tkcnf.or.jp">ono-hi@tkcnf.or.jp</a></p>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <img class="footer__logo" src="assets/logo.png" alt="税理士法人小野会計" width="720" height="175">
+        <p>群馬県館林市大手町3-30<br>東武伊勢崎線 館林駅より徒歩13分／駐車場完備<br>採用お問い合わせ：<a href="mailto:ono-hi@tkcnf.or.jp">ono-hi@tkcnf.or.jp</a></p>
+        <p style="margin-top:14px"><a class="btn btn--line" href="https://takako-zeikin.studio.site/" target="_blank" rel="noopener">事務所ホームページはこちら</a></p>
+      </div>
+      <nav class="footer__nav">
+        <a href="#message">MESSAGE</a><a href="#about">ABOUT</a><a href="#work">WORK</a><a href="#culture">CULTURE</a><a href="#interview">INTERVIEW</a><a href="#recruit">RECRUIT</a><a href="#faq">FAQ</a><a href="#entry">ENTRY</a>
+      </nav>
+    </div>
+    <p class="copy">© ONO TAX ACCOUNTANT OFFICE. ALL RIGHTS RESERVED.</p>
+  </div>
+</footer>
+
+<div class="fixed-entry"><a href="https://docs.google.com/forms/d/e/1FAIpQLSeUttvNhKNgyLRMvmkIpnhQUkwaLtw6oB4SBGYIMi8Nn_W-tg/viewform?usp=pp_url&amp;entry.2010085443=%E4%BA%8B%E5%8B%99%E6%89%80%E8%A6%8B%E5%AD%A6%E3%83%BB%E3%82%AB%E3%82%B8%E3%83%A5%E3%82%A2%E3%83%AB%E9%9D%A2%E8%AB%87%E3%82%92%E5%B8%8C%E6%9C%9B%E3%81%99%E3%82%8B" target="_blank" rel="noopener">見学・面談</a><a href="https://docs.google.com/forms/d/e/1FAIpQLSeUttvNhKNgyLRMvmkIpnhQUkwaLtw6oB4SBGYIMi8Nn_W-tg/viewform?usp=pp_url&amp;entry.2010085443=%E5%BF%9C%E5%8B%9F%E3%81%99%E3%82%8B" target="_blank" rel="noopener">応募する</a></div>
+
+<script>
+  document.documentElement.classList.add('js');
+
+  // header shadow
+  const header=document.getElementById('header');
+  addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>10),{passive:true});
+
+  // sp menu
+  const menuBtn=document.getElementById('menuBtn'),nav=document.getElementById('nav');
+  menuBtn.addEventListener('click',()=>{
+    const open=nav.classList.toggle('open');
+    menuBtn.classList.toggle('open',open);
+    menuBtn.setAttribute('aria-expanded',open);
+  });
+  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    nav.classList.remove('open');menuBtn.classList.remove('open');menuBtn.setAttribute('aria-expanded',false);
+  }));
+
+  // tabs
+  const tabs=[...document.querySelectorAll('.tab')];
+  function selectTab(id){
+    tabs.forEach(t=>{
+      const on=t.getAttribute('aria-controls')===id;
+      t.setAttribute('aria-selected',on);
+      document.getElementById(t.getAttribute('aria-controls')).hidden=!on;
+    });
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>selectTab(t.getAttribute('aria-controls'))));
+  document.querySelectorAll('.card-big').forEach(c=>c.addEventListener('click',e=>{
+    e.preventDefault();
+    selectTab(c.getAttribute('href').slice(1));
+    document.getElementById('recruit').scrollIntoView();
+  }));
+
+  // reveal on scroll
+  let pending=[...document.querySelectorAll('.rv')];
+  function reveal(){
+    const limit=innerHeight*0.92;
+    pending=pending.filter(el=>{
+      if(el.getBoundingClientRect().top<limit){el.classList.add('on');return false}
+      return true;
+    });
+  }
+  addEventListener('scroll',reveal,{passive:true});
+  addEventListener('resize',reveal);
+  reveal();
+</script>
+</body>
+</html>
