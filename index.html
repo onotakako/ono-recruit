@@ -100,8 +100,8 @@
   .tag{font-size:11px;background:var(--pink-pale);color:var(--pink-deep);padding:2px 12px;border-radius:999px;flex-shrink:0}
 
   /* ---------- message ---------- */
-  .message__grid{display:grid;grid-template-columns:1.05fr 1fr;gap:72px;align-items:center}
-  .message__grid .photo{aspect-ratio:4/5}
+  .message__grid{display:grid;grid-template-columns:420px 1fr;gap:72px;align-items:center}
+  .message__grid .photo{aspect-ratio:4/5;width:100%;max-width:420px}
   .message__grid .photo img{object-position:50% 25%}
   .message h3{font-size:clamp(22px,2.8vw,32px);line-height:1.7;letter-spacing:.08em;margin-bottom:32px}
   .message p+p{margin-top:1.4em}
@@ -261,6 +261,7 @@
     .message__grid,.duo,.points,.about__top{grid-template-columns:1fr}
     .about__top .photo{aspect-ratio:4/3}
     .message__grid{gap:40px}
+    .message__grid .photo{max-width:320px;margin-inline:auto}
     .services{grid-template-columns:1fr 1fr}
     .flow,.interviews{grid-template-columns:1fr}
     .nums{grid-template-columns:1fr 1fr}
