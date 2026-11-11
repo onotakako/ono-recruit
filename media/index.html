@@ -55,6 +55,39 @@ img{display:block;max-width:100%}
 .in .copy>*{opacity:1;transform:none}
 .in .copy>*:nth-child(2){transition-delay:.15s}.in .copy>*:nth-child(3){transition-delay:.3s}.in .copy>*:nth-child(4){transition-delay:.45s}
 
+/* ===== A2: lumily 出演動画 ===== */
+.video{grid-template-columns:1.15fr 1fr;padding-top:24px}
+.video::before{inset:30px 45% 20px 0;background:linear-gradient(135deg,#e9ecf4,var(--pink-pale))}
+.video .copy{order:2}
+.screen{position:relative;z-index:1;margin:30px 10px 30px 20px;opacity:0;transform:translateX(-50px) rotate(-4deg);
+  transition:transform 1s cubic-bezier(.2,.8,.2,1),opacity .9s ease}
+.in .screen{opacity:1;transform:rotate(-2deg)}
+.player{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;cursor:pointer;
+  box-shadow:0 22px 50px rgba(60,70,100,.28);border:6px solid #fff;transition:transform .35s,box-shadow .35s}
+.player:hover{transform:translateY(-4px) rotate(2deg);box-shadow:0 30px 60px rgba(60,70,100,.34)}
+.player img{width:100%;height:100%;object-fit:cover;transition:transform 6s ease}
+.player:hover img{transform:scale(1.06)}
+.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.play{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;
+  background:var(--pink);display:grid;place-items:center;box-shadow:0 8px 24px rgba(207,113,132,.5)}
+.play::before{content:"";margin-left:6px;border-style:solid;border-width:14px 0 14px 22px;border-color:transparent transparent transparent #fff}
+.play::after{content:"";position:absolute;inset:-4px;border-radius:50%;border:3px solid var(--pink);animation:ring 1.8s ease-out infinite}
+@keyframes ring{from{transform:scale(1);opacity:.9}to{transform:scale(1.7);opacity:0}}
+.onair{position:absolute;z-index:3;top:-14px;left:-10px;background:#fff;color:var(--pink);font-weight:700;font-size:12px;
+  letter-spacing:.15em;padding:7px 14px 7px 26px;border-radius:999px;box-shadow:0 6px 16px rgba(60,70,100,.18)}
+.onair::before{content:"";position:absolute;left:11px;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:#e8344a;animation:blink 1.2s infinite}
+@keyframes blink{50%{opacity:.2}}
+.chip{position:absolute;z-index:3;background:#fff;color:var(--navy);font-size:13px;font-weight:700;padding:8px 16px;border-radius:999px;
+  box-shadow:0 8px 20px rgba(60,70,100,.18);opacity:0;transform:scale(.3);transition:all .6s cubic-bezier(.3,1.6,.5,1)}
+.chip b{color:var(--pink)}
+.c1{right:-6px;top:6%}.c2{right:-22px;top:38%}.c3{left:8%;bottom:-18px}
+.in .chip{opacity:1;transform:none;animation:bob 4s ease-in-out infinite}
+.in .c1{transition-delay:.8s;animation-delay:1.6s}.in .c2{transition-delay:1s;animation-delay:2.3s}.in .c3{transition-delay:1.2s;animation-delay:3s}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -7px}}
+.btn{display:inline-flex;align-items:center;gap:8px;margin-top:22px;background:var(--pink);color:#fff;text-decoration:none;
+  font-size:14px;font-weight:700;padding:12px 24px;border-radius:999px;border:0;cursor:pointer;box-shadow:0 8px 20px rgba(207,113,132,.35);transition:transform .25s}
+.btn:hover{transform:translateY(-3px)}
+
 /* ===== B: 掲載実績の帯 ===== */
 .marquee-wrap{position:relative;padding:26px 0 46px}
 .marquee-title{text-align:center;font-size:12px;letter-spacing:.3em;color:var(--pink);margin-bottom:18px}
@@ -74,11 +107,16 @@ img{display:block;max-width:100%}
   .feature::before{inset:auto 0 0 0;height:400px}
   .stage{height:380px;max-width:420px;width:100%;margin:0 auto}
   .s-p2{top:230px}
+  .video .copy{order:-1}
+  .video::before{inset:auto 0 0 0;height:300px}
+  .screen{margin:20px 14px 36px}
+  .c2{right:-6px;top:auto;bottom:22%}
+  .play{width:60px;height:60px;margin:-30px 0 0 -30px}
   .item .ph,.item img{height:130px}
   .track{animation-duration:30s}
 }
 @media (prefers-reduced-motion:reduce){
-  .sheet,.badge,.copy>*{transition:none!important;animation:none!important;opacity:1!important}
+  .sheet,.badge,.copy>*,.screen,.chip{transition:none!important;animation:none!important;opacity:1!important}
   .track{animation:none}
 }
 </style>
@@ -102,6 +140,28 @@ img{display:block;max-width:100%}
   </div>
 </section>
 
+<section class="feature video" id="video">
+  <div class="screen">
+    <span class="onair">YouTube 出演</span>
+    <div class="player" id="player" role="button" tabindex="0" aria-label="lumilyの出演動画を再生">
+      <img src="img/lumily_thumb.jpg" alt="lumily 出演動画のサムネイル" loading="lazy">
+      <span class="play"></span>
+    </div>
+    <span class="chip c1"><b>融資</b> のこと</span>
+    <span class="chip c2"><b>補助金</b> のこと</span>
+    <span class="chip c3"><b>助成金</b> のこと</span>
+  </div>
+  <div class="copy">
+    <span class="label">VIDEO</span>
+    <h2>ライフスタイルメディア<br><em>「lumily」</em>に出演しました</h2>
+    <ul class="topics">
+      <li>起業するときに知っておきたいお金のこと</li>
+      <li>融資・補助金・助成金をわかりやすく解説</li>
+    </ul>
+    <button class="btn" id="playBtn" type="button">動画を見る ▶</button>
+  </div>
+</section>
+
 <section class="marquee-wrap">
   <p class="marquee-title">BOOKS &amp; MEDIA</p>
   <div class="marquee"><div class="track" id="track"></div></div>
@@ -115,14 +175,20 @@ const items=[
   ["m_fpj.jpg","FPジャーナル 2024年8月号"],
   ["m_cpa.jpg","CPA会計学院 ロールモデルインタビュー"],
   ["m_flat.jpg","「ふらっと＋」インタビュー"],
-  ["m_bizup.jpg","ビズアップ総研「税理士.Ch」"]
+  ["m_bizup.jpg","ビズアップ総研「税理士.Ch」"],
+  ["m_lumily.jpg","lumily 出演動画"]
 ];
 const html=items.map(([f,t])=>`<div class="item"><div class="ph"><img src="img/${f}" alt="${t}"></div><p>${t}</p></div>`).join("");
 document.getElementById("track").innerHTML=html+html;
-const f=document.getElementById("feature");
-const show=()=>{const r=f.getBoundingClientRect();if(r.top<innerHeight*0.85&&r.bottom>0){f.classList.add("in");}};
-if("IntersectionObserver"in window){new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)f.classList.add("in")}),{threshold:.2}).observe(f);}
+const secs=[...document.querySelectorAll(".feature")];
+const show=()=>secs.forEach(f=>{const r=f.getBoundingClientRect();if(r.top<innerHeight*0.85&&r.bottom>0)f.classList.add("in")});
+if("IntersectionObserver"in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("in")}),{threshold:.2});secs.forEach(s=>io.observe(s));}
 addEventListener("scroll",show,{passive:true});setTimeout(show,300);
+/* 動画はクリックしたときだけYouTubeを読み込む */
+const player=document.getElementById("player");
+const play=()=>{if(player.querySelector("iframe"))return;player.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/niUzVILsA-I?autoplay=1&rel=0" title="lumily 出演動画" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';};
+player.addEventListener("click",play);player.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();play()}});
+document.getElementById("playBtn").addEventListener("click",()=>{player.scrollIntoView({behavior:"smooth",block:"center"});play();});
 </script>
 </body>
 </html>
